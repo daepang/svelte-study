@@ -1,38 +1,20 @@
-# create-svelte
+# Svelte 학습용 프로젝트
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+## 버전관리
 
-## Creating a project
+- Node.js : 18.15.0
+- pnpm : 7.29.1
+- Svelte : 3.54.0
+- Typescript : 4.9.3
 
-If you're seeing this, you've probably already done this step. Congrats!
+### 패키지 관리
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+- pnpm
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+### 패키지 설치
 
-## Developing
+- pnpm install
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+### 실행
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- pnpm dev
