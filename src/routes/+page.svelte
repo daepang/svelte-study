@@ -1,31 +1,32 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+	const imageUrl = 'https://picsum.photos/100/100';
+
+	const followingCnt = 0;
+	const followerCnt = 0;
 </script>
 
 <svelte:head>
 	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+	<meta name='description' content='Svelte demo app' />
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
+	<div class='welcome-top'>
+		<span class='welcome-img'>
+			<img src={imageUrl} alt='Welcome' />
 		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+		
+		<div class='welcome-score'>
+			<a class='welcome-scoreItem'>
+				<span class='welcome-scoreNo'>{followingCnt}</span>
+				<span class='welcome-scoreText'>팔로잉</span>
+			</a>
+			<a class='welcome-scoreItem'>
+				<span class='welcome-scoreNo'>{followerCnt}</span>
+				<span class='welcome-scoreText'>팔로워</span>
+			</a>
+		</div>
+	</div>
 </section>
 
 <style>
@@ -36,24 +37,81 @@
 		align-items: center;
 		flex: 0.6;
 	}
-
-	h1 {
-		width: 100%;
+	.welcome-top {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-moz-box-pack: justify;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+		-webkit-box-align: center;
+		-webkit-align-items: center;
+		-moz-box-align: center;
+		-ms-flex-align: center;
+		align-items: center;
+		margin-bottom: 14px;
 	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
+	.welcome-img {
+		margin-right: 27px;
+		width: 80px;
+		height: 80px;
+		-webkit-box-flex: 0;
+		-webkit-flex: 0 0 auto;
+		-moz-box-flex: 0;
+		-ms-flex: 0 0 auto;
+		flex: 0 0 auto;
+		-webkit-background-size: 80px 80px;
+		-moz-background-size: 80px 80px;
+		-o-background-size: 80px 80px;
+		background-size: 80px 80px;
 	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
+	.welcome-img img {
 		display: block;
+		-webkit-border-radius: 50%;
+		-moz-border-radius: 50%;
+	}
+	.welcome-score {
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-flex: 1;
+		-webkit-flex-grow: 1;
+		-moz-box-flex: 1;
+		-ms-flex-positive: 1;
+		flex-grow: 1;
+		-webkit-flex-shrink: 0;
+		-ms-flex-negative: 0;
+		flex-shrink: 0;
+		-webkit-column-gap: 6px;
+		-moz-column-gap: 6px;
+		column-gap: 6px;
+	}
+	.welcome-scoreItem {
+		width: auto;
+		-webkit-box-flex: 1;
+		-webkit-flex: 1;
+		-moz-box-flex: 1;
+		-ms-flex: 1;
+		flex: 1;
+		margin-left: 20px;
+		margin-right: 20px;
+	}
+	.welcome-scoreNo {
+		display: block;
+		font-size: 16px;
+		font-weight: 600;
+		color: #000;
+	}
+	.welcome-scoreText {
+		display: block;
+		font-size: 12px;
+		font-weight: 400;
+		color: #333;
 	}
 </style>
