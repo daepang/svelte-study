@@ -1,17 +1,24 @@
 <script lang="ts">
+	import { onMount } from "svelte";
 	import { spring } from 'svelte/motion';
 	import { followingCnt, followerCnt } from './Store';
 
 	let count = 0;
-	let following = 0;
-	let follower = 0;
 
-	followerCnt.subscribe(data => {
-		following = data;
-	});
-
-	followerCnt.subscribe(data => {
-		follower = data;
+	onMount(() => {
+		switch (type) {
+			case '팔로잉' :
+				followerCnt.subscribe(data => {
+					count = data;
+				});
+				break;
+			case '팔로워' :
+				followerCnt.subscribe(data => {
+					count = data;
+				});
+				break;
+			default : break;
+		}
 	});
 
 	const displayed_count = spring();
@@ -51,8 +58,8 @@
 
 	<div class="counter-viewport">
 		<div class="counter-digits" style="transform: translate(0, {100 * offset}%)">
-			<strong class="hidden" aria-hidden="true">{following}</strong>
-			<strong>{Math.floor($displayed_count)}</strong>
+			<strong class="hidden" aria-hidden="true">{count}</strong>
+			<strong>{count}</strong>
 		</div>
 	</div>
 
