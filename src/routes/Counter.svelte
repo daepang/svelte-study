@@ -8,7 +8,7 @@
 	onMount(() => {
 		switch (type) {
 			case '팔로잉' :
-				followerCnt.subscribe(data => {
+				followingCnt.subscribe(data => {
 					count = data;
 				});
 				break;
