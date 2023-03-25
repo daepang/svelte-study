@@ -1,8 +1,18 @@
 <script>
+	import { followingCnt, followerCnt } from './Store';
+
 	const imageUrl = 'https://picsum.photos/100/100';
 
-	const followingCnt = 0;
-	const followerCnt = 0;
+	let following = 0;
+	let follower = 0;
+
+	followingCnt.subscribe(data => {
+		following = data;
+	});
+
+	followerCnt.subscribe(data => {
+		follower = data;
+	});
 </script>
 
 <svelte:head>
@@ -18,11 +28,11 @@
 		
 		<div class='welcome-score'>
 			<a class='welcome-scoreItem'>
-				<span class='welcome-scoreNo'>{followingCnt}</span>
+				<span class='welcome-scoreNo'>{following}</span>
 				<span class='welcome-scoreText'>팔로잉</span>
 			</a>
 			<a class='welcome-scoreItem'>
-				<span class='welcome-scoreNo'>{followerCnt}</span>
+				<span class='welcome-scoreNo'>{follower}</span>
 				<span class='welcome-scoreText'>팔로워</span>
 			</a>
 		</div>
